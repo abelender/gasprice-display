@@ -14,7 +14,6 @@ public class PersonalFont {
 		try {
 			font = Font.createFont(Font.TRUETYPE_FONT, new File("7-segment.ttf"));
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-			//register the font
 			ge.registerFont(font);
 			font = font.deriveFont(142f);
 

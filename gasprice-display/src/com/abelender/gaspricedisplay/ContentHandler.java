@@ -6,7 +6,7 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class ContentHandler  extends DefaultHandler {
 
-       private GasStationPrice gasStation = new GasStationPrice();	
+       private GasStationPrice gasStation;	
 
        
        private boolean isRegularType = false;
@@ -17,7 +17,9 @@ public class ContentHandler  extends DefaultHandler {
        
        private String temp, unpadded;
        
-       
+       public ContentHandler (GasStationPrice gasStation) {
+    	   this.gasStation = gasStation;
+       }
 
        public void characters(char[] buffer, int start, int length) {
               unpadded = new String(buffer, start, length);
@@ -47,7 +49,6 @@ public class ContentHandler  extends DefaultHandler {
     	   	if("place".equals(qName)) {
     	   		if("11607".equals(attributes.getValue("place_id"))) {
     	   			
-        	   		//gasStation = new GasStationPrice(attributes.getValue("place_id"));
     	   			gasStation.setId(attributes.getValue("place_id"));
         	   		isGasStation = true;
     	   		}  
@@ -75,11 +76,7 @@ public class ContentHandler  extends DefaultHandler {
                      throws SAXException {
     	   
     	   if("place".equals(qName) && isGasStation) {
-    		   
-//    		   System.out.println("Regular: " + gasStation.getRegularPrice() + "\n" +
-//    				   		      "Premium: " + gasStation.getPremiumPrice() + "\n" +
-//    				   			  "Diesel : " + gasStation.getDieselPrice());
-    		   
+    		  
     		   isGasStation = false;
     	   }  	 
        }
@@ -90,13 +87,9 @@ public class ContentHandler  extends DefaultHandler {
 		 System.out.println("Regular: " + gasStation.getRegularPrice() + "\n" +
 				 			"Premium: " + gasStation.getPremiumPrice() + "\n" +
 				 			"Diesel : " + gasStation.getDieselPrice());
-		
-		
 	} 
 	
 	public GasStationPrice getPricesObject () {
 		return gasStation;
 	}
-       
-       
 }

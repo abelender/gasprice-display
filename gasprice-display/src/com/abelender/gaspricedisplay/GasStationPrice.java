@@ -7,8 +7,6 @@ public class GasStationPrice {
 	private String premiumPrice;
 	private String dieselPrice;
 	
-
-
 	public String getRegularPrice() {
 		return regularPrice;
 	}
