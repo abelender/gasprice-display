@@ -39,8 +39,6 @@ public class GasApp {
 		mainPanel.add(regular);
 		mainPanel.add(diesel);
 	
-
-
 		JFrame frame = new JFrame("Premium|Regular|Diesel Price");
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

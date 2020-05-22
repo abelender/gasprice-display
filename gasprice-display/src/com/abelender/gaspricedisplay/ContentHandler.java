@@ -7,13 +7,11 @@ import org.xml.sax.helpers.DefaultHandler;
 public class ContentHandler  extends DefaultHandler {
 
        private GasStationPrice gasStation;	
-
-       
+  
        private boolean isRegularType = false;
        private boolean isPremiumType = false;
        private boolean isDieselType = false;
        private boolean isGasStation = false;
-       
        
        private String temp, unpadded;
        
